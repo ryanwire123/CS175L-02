@@ -53,6 +53,7 @@ public class HousePaintingProject {
 		System.out.println("Enter Cost Per Sq Ft: ");
 		costPerSqFt = in.nextDouble();
 		costToPaint = totalSqFt * costPerSqFt;
+		System.out.println("The total square footage that is to be painted is: " + totalSqFt);
 		System.out.println("The cost to paint the house is: " + costToPaint);
 
 	}
