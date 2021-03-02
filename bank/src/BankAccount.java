@@ -5,14 +5,18 @@
 		public class BankAccount
 		{
 		   private double balance;
+		   double interestPct;
 		   
 
 		   /**
 		      Constructs a bank account with zero balance.
 		   */
-		   public BankAccount(double amount)
+		   public BankAccount(double amount, double interest)
 		   {
 		     balance = amount;
+		     interestPct = interest;
+		     
+		     
 		   }
 
 		   /**
@@ -22,6 +26,8 @@
 		   public void deposit(double amount)
 		   {
 		      balance = balance + amount;
+		      System.out.println("Deposited: " + amount);
+		      
 		   }
 
 		   /**
@@ -31,16 +37,32 @@
 		   */
 		   public void withdraw(double amount)
 		   {
-		      balance = balance - amount;
+		    
+		      if (balance >= amount) {
+                  balance = balance - amount;
+                  System.out.println("Withdrew: " + amount);
+              } else {
+                  System.out.println("Insufficient Funds");
+                  
+                  }
 		   }
 		   /**
 		      Gets the current balance of this bank account.
 		      @return the current balance
 		   */
-		   public double getBalance()
+		   public void getInterest(String answer)
 		   {
-		      return balance;
+			  if (answer.equalsIgnoreCase("Yes")) {
+				 double newBalance = (balance * interestPct) + balance;
+				 System.out.println("Interest: " + (balance * interestPct));
+				 System.out.println("The account balance is: " + newBalance);
+			  }else {
+				 System.out.println("The account balance is: " + balance);
+				  
+			  }
 		   }
+		   
+		  
 		}
 	
 
